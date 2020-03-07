@@ -1,0 +1,42 @@
+.blog--container h2 {
+    margin: 20px auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3132ff;
+    position: relative;
+}
+
+.blog--container h2:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: rgba(100, 100, 100, .1);
+    left: 0;
+    bottom: -10px;
+}
+
+.blog--container h2:before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 5px;
+    background: rgba(100, 100, 100, .1);
+    left: 0;
+    top: -10px;
+}
+
+.blog--container ol, .blog--container ul {
+    margin: 20px !important;
+    padding: 0 !important;
+}
+
+.blog--container blockquote {
+    background: rgba(100, 100, 100, .1);
+    padding: 20px;
+}
+
+.gatsby-highlight-code-line {
+    background: rgba(100, 100, 100, .3);;
+}
+
