@@ -1,42 +1,60 @@
 .blog--container h2 {
-    margin: 20px auto;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #3132ff;
-    position: relative;
+  margin: 20px auto;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgb(46, 49, 146);
+  position: relative;
 }
 
 .blog--container h2:after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 5px;
-    background: rgba(100, 100, 100, .1);
-    left: 0;
-    bottom: -10px;
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  opacity: 0.3;
+  background: pink;
+  left: 0;
+  bottom: -10px;
+  border-radius: 50px;
+  z-index: -1;
+  transform: rotate(-30deg);
 }
 
 .blog--container h2:before {
-    content: "";
-    position: absolute;
-    width: 130px;
-    height: 5px;
-    background: rgba(100, 100, 100, .1);
-    left: 0;
-    top: -10px;
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  opacity: 0.1;
+  background: blue;
+  left: -30px;
+  top: -10px;
+  border-radius: 50px;
+  transform: rotate(-30deg);
+  z-index: -1;
 }
 
-.blog--container ol, .blog--container ul {
-    margin: 20px !important;
-    padding: 0 !important;
+.blog--container ol,
+.blog--container ul {
+  margin: 20px !important;
+  padding: 0 !important;
 }
 
 .blog--container blockquote {
-    background: rgba(100, 100, 100, .1);
-    padding: 20px;
+  background: rgba(46, 49, 146, 1);
+  color: white;
+  padding: 10px;
+  border-left: 10px solid orange;
+  box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  margin: 40px auto;
+}
+
+.blog--container img:first-of-type {
+  border-radius: 20px;
+  box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
 }
 
 .gatsby-highlight-code-line {
-    background: rgba(100, 100, 100, .3);;
+  background: rgba(100, 100, 100, 0.3);
 }
-

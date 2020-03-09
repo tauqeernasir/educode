@@ -1,6 +1,6 @@
 ---
-title: "How I use react hooks to make my life easy"
-date: "2020-03-05"
+title: "Why react is an awesome library for building user interfaces?"
+date: "2020-03-07"
 tags: "javascript,react,hooks"
 thumbnail: "https://www.hostgator.com/blog/wp-content/uploads/2018/02/OptimizeBlogPosts.png"
 ---

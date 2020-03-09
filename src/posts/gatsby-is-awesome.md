@@ -1,11 +1,11 @@
 ---
-title: "How to porperly use Gatsby to develop your own blog site"
-date: "2018-03-03"
+title: "Gatsby is awesome at building static websites"
+date: "2020-03-04"
 tags: "javascript,react,gatsby"
 thumbnail: "https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-of-a-blog-post-deconstructed-open-graph.jpg"
 ---
 
-![](https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-of-a-blog-post-deconstructed-open-graph.jpg)
+![Image](https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-of-a-blog-post-deconstructed-open-graph.jpg)
 
 I have been trying to work with the gatsby ecosystem and I found it really awesome to develop and write some awesome applications.
 The best part that I really liked was building some static pages and putting them online to access on the internet and it's really fast.
