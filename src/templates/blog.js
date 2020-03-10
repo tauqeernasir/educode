@@ -38,7 +38,7 @@ const Blog = props => {
             </Heading>
             <Text>{markdownRemark.frontmatter.date}</Text>
             <Box>
-              {markdownRemark.frontmatter.tags && markdownRemark.frontmatter.tags.split(",").map(tag => (
+              {markdownRemark.frontmatter.tags && markdownRemark.frontmatter.tags.map(tag => (
                 <Badge
                   p={1}
                   mr={1}

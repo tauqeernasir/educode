@@ -1,7 +1,12 @@
 ---
 title: "Why react is an awesome library for building user interfaces?"
 date: "2020-03-07"
-tags: "javascript,react,hooks"
+tags:
+    - javascript
+    - reactjs
+    - nodejs
+author: "Tauqeer Nasir"
+avatar: ""
 thumbnail: "https://www.hostgator.com/blog/wp-content/uploads/2018/02/OptimizeBlogPosts.png"
 ---
 

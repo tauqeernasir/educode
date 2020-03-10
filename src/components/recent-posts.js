@@ -5,11 +5,11 @@ import Flex from "@chakra-ui/core/dist/Flex"
 import PseudoBox from "@chakra-ui/core/dist/PseudoBox"
 import Badge from "@chakra-ui/core/dist/Badge"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { Divider, Image } from "@chakra-ui/core"
+import { Divider, Image, Stack } from "@chakra-ui/core"
 import useMedia from "use-media"
 
 const Post = props => {
-  const { title, description, slug, thumbnail, date } = props
+  const { title, description, slug, thumbnail, date, author, avatar } = props
   return (
     <PseudoBox
       bg={"white"}
@@ -18,11 +18,11 @@ const Post = props => {
           "0 20px 25px -5px rgba(85, 60, 154, .3), 0 10px 10px -5px rgb(85, 60, 154, .3)",
       }}
       p={4}
-      mb={10}
       rounded={5}
       borderWidth={1}
       borderColor={"grey.400"}
       maxW={480}
+      minH={500}
       transition={"all .3s"}
       _hover={{
         boxShadow: "sm",
@@ -46,12 +46,22 @@ const Post = props => {
           rounded={10}
           boxShadow={"2xl"}
         />
-        <Text fontSize={"2xl"} fontWeight={"bold"} color={"purple.700"}>
-          {title}
-        </Text>
-        <Text>{date}</Text>
+        <Link to={`/blog/${slug}`}>
+          <Text fontSize={"xl"} fontWeight={"bold"} color={"purple.700"} mt={3}>
+            {title}
+          </Text>
+        </Link>
+        <Stack isInline fontSize={{ xs: "xs", sm: "sm" }}>
+          <Text>
+            <i>written on {date}</i>
+          </Text>
+          <Text>
+            {" "}
+            by <b>{author}</b>
+          </Text>
+        </Stack>
         <Divider />
-        <Text fontSize={"1.1em"}>{description}</Text>
+        <Text fontSize={{ sm: "sm", md: "lg" }}>{description}</Text>
         <Box d={"flex"} alignItems={"center"}>
           <Box flex={1}>
             <Badge variant={"outline"} variantColor={"orange"} mr={1}>
@@ -85,13 +95,18 @@ const RecentPosts = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 10) {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 10
+      ) {
         edges {
           node {
             frontmatter {
               title
-              date(formatString: "MMM Do YYYY")
+              date(formatString: "MMM, Do YYYY")
               thumbnail
+              avatar
+              author
             }
             excerpt
             fields {
@@ -137,7 +152,7 @@ const RecentPosts = () => {
               } = edge.node
 
               return (
-                <Box m={4}>
+                <Box m={4} key={frontmatter.title}>
                   <Post
                     key={frontmatter.title}
                     title={frontmatter.title}
@@ -145,6 +160,8 @@ const RecentPosts = () => {
                     slug={slug}
                     thumbnail={frontmatter.thumbnail}
                     date={frontmatter.date}
+                    avatar={frontmatter.avatar}
+                    author={frontmatter.author}
                   />
                 </Box>
               )

@@ -1,7 +1,12 @@
 ---
 title: "How to porperly use Gatsby to develop your own blog site"
 date: "2018-03-03"
-tags: "javascript,react,gatsby"
+tags:
+    - javascript
+    - reactjs
+    - nodejs
+author: "Tauqeer Nasir
+avatar: ""
 thumbnail: "https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-of-a-blog-post-deconstructed-open-graph.jpg"
 ---
 

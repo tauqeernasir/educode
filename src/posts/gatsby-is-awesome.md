@@ -1,7 +1,12 @@
 ---
 title: "Gatsby is awesome at building static websites"
 date: "2020-03-04"
-tags: "javascript,react,gatsby"
+tags:
+    - javascript
+    - reactjs
+    - nodejs
+author: "Tauqeer Nasir"
+avatar: ""
 thumbnail: "https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-of-a-blog-post-deconstructed-open-graph.jpg"
 ---
 
@@ -10,7 +15,7 @@ thumbnail: "https://c1.sfdcstatic.com/content/dam/blogs/ca/Blog%20Posts/anatomy-
 I have been trying to work with the gatsby ecosystem and I found it really awesome to develop and write some awesome applications.
 The best part that I really liked was building some static pages and putting them online to access on the internet and it's really fast.
 
-Things that I really enjoyed were using chakra-ui, react and markdown to develop my blog. On this website, I am using same stack and hosting my files through digital ocean server.
+Things that I really enjoyed were using `chakra-ui`, `react` and `markdown` to develop my blog. On this website, I am using same stack and hosting my files through digital ocean server.
 
 - _Static Pages_
 - _Dynamic Content Using GraphQL_

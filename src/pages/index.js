@@ -5,10 +5,10 @@ import Text from "@chakra-ui/core/dist/Text"
 import Box from "@chakra-ui/core/dist/Box"
 import Flex from "@chakra-ui/core/dist/Flex"
 import BackgroundBorder from "../images/background.svg"
-import DevCoder from "../images/dev-coder.svg"
 import RecentPosts from "../components/recent-posts"
 
 import "./index.css"
+import { Button, Input } from "@chakra-ui/core"
 
 const IndexPage = () => (
   <Layout>
@@ -16,29 +16,54 @@ const IndexPage = () => (
     <Flex
       justifyContent="space-around"
       backgroundColor="#2e3192"
-      id={"main-page-header-1"}
-      position={"relative"}
     >
       <Box>
         <Box
           d="flex"
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          flex={1}
+          flexDir={"column"}
           maxW={960}
           px={4}
           py="100px"
+          my={10}
           position="relative"
         >
-          <Text fontSize="1.4em" fontWeight={200} maxW="600px" color={"white"}>
-            <Text fontSize={"2em"}>A learning platform for</Text>
-            <Text as="span">
-              <b>developers, designers</b> and <b>software testers</b>. Follow
-              our community on @twitter to get updates about new content.
+          <Box mb={8}>
+            <Text
+              // fontWeight={200}
+              color={"white"}
+            >
+              <Box fontSize={{ md: "4xl" }} fontWeight={"bold"}>
+                Become a better software developer
+              </Box>
+              <Box fontSize={{ md: "2xl" }} fontWeight={300}>
+                Read high quality articles about data structures, software
+                development, web development, testing, designing and software
+                architecture.
+              </Box>
+              <Box fontWeight={200}>
+                Follow our community on twitter{" "}
+                <b>
+                  <i>@backslashes_io</i>
+                </b>{" "}
+                to get updates about new content.
+              </Box>
             </Text>
-          </Text>
-          <Box minW={200} maxW={200} flex={1}>
-            <DevCoder width={300} height={300} />
+          </Box>
+          <Box alignSelf={'flex-start'}>
+            <Box p={4} rounded={10} boxShadow={'xl'}>
+              <Text color={'white'} mb={4} fontWeight={300}>Subscribe to our newletter to stay up to date with latest content</Text>
+              <Box d={"flex"} flexWrap={'wrap'}>
+                <Box m={1}>
+                  <Input w={'2xs'} placeholder={'Enter your name'}/>
+                </Box>
+                <Box m={1}>
+                  <Input w={'2xs'} placeholder={'Enter your email address'}/>
+                </Box>
+                <Button m={1}>
+                  <Text>Subscribe</Text>
+                </Button>
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Box>
