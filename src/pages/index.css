@@ -1,0 +1,6 @@
+.gradient-text {
+    /*font-size: 72px;*/
+    background: linear-gradient(to bottom right, purple, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -6,8 +6,8 @@ import Header from "./header"
 import "./layout.css"
 import ThemeProvider from "@chakra-ui/core/dist/ThemeProvider"
 import { CSSReset } from "@chakra-ui/core"
-import Text from "@chakra-ui/core/dist/Text"
-import Flex from "@chakra-ui/core/dist/Flex"
+import Footer from "./footer"
+import Box from "@chakra-ui/core/dist/Box"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,12 +31,8 @@ const Layout = ({ children }) => {
           maxWidth: '100%',
         }}
       >
-        <main>{children}</main>
-        <footer>
-          <Flex justifyContent={'space-around'}>
-            <Text>© {new Date().getFullYear()}, Copywrites Backslashes.io</Text>
-          </Flex>
-        </footer>
+        <Box as={'main'} mb={10} m>{children}</Box>
+        <Footer/>
       </div>
     </ThemeProvider>
   )

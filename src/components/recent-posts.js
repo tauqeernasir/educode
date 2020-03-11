@@ -129,19 +129,25 @@ const RecentPosts = () => {
         rounded={5}
         boxShadow={"2xl"}
       >
-        <Text
-          fontSize={"1.2em"}
-          color={"black.100"}
-          mb={6}
-          position={"absolute"}
-          top={-40}
-          left={10}
-          backgroundColor={"yellow.400"}
-          p={2}
+        <Box
+          background={"rgba(0, 0, 0, .1)"}
+          p={1}
           rounded={10}
+          position={"absolute"}
+          top={'45%'}
+          left={-90}
+          transform={'rotate(-90deg)'}
         >
-          Recent blog posts
-        </Text>
+          <Text
+            fontSize={"1.2em"}
+            color={"white"}
+            background={"linear-gradient(to bottom right, purple 30%, orange)"}
+            p={2}
+            rounded={10}
+          >
+            Recent blog posts
+          </Text>
+        </Box>
         <Flex justifyContent={"space-around"} backgroundColor={"red"}>
           <Flex flexDir={isWide ? "row" : "column"} flexWrap={"wrap"}>
             {data.allMarkdownRemark.edges.map(edge => {

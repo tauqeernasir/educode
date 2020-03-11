@@ -4,10 +4,16 @@ import React from "react"
 import Flex from "@chakra-ui/core/dist/Flex"
 import Text from "@chakra-ui/core/dist/Text"
 import Box from "@chakra-ui/core/dist/Box"
+import Typing from "react-typing-animation"
 
 const NavLink = ({ children, partiallyActive, ...props }) => (
-  <Link style={{ color: 'white', padding: '5px 10px', marginRight: '10px' }} activeStyle={{ color: 'white', borderBottom: '1px solid white' }} partiallyActive={partiallyActive} {...props}>
-      <Text as="span">{children}</Text>
+  <Link
+    style={{ color: "white", padding: "5px 10px", marginRight: "10px" }}
+    activeStyle={{ color: "white", borderBottom: "1px solid white" }}
+    partiallyActive={partiallyActive}
+    {...props}
+  >
+    <Text as="span">{children}</Text>
   </Link>
 )
 
@@ -28,18 +34,18 @@ const Header = ({ siteTitle }) => (
         maxW={"960px"}
       >
         <Flex flexDirection="row" justifyContent="center" alignItems="center">
-          <Text color="white" fontWeight={300} fontSize={'1.1em'} letterSpacing={2}>
-            <b>\\\</b> <span>{siteTitle.toLowerCase()}</span>
-          </Text>
+          <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
+            <Typing>
+              <b style={{ fontSize: '130%'}}>\\ </b> backslashes.io
+            </Typing>
+          </Box>
         </Flex>
-        <Box fontWeight={300} fontSize={'1.1em'}>
-          <NavLink to={"/"}>
-            Home
+        <Box fontWeight={300} fontSize={"1.1em"}>
+          <NavLink to={"/"}>Home</NavLink>
+          <NavLink to={"/blog"} partiallyActive={true}>
+            Blog
           </NavLink>
-          <NavLink to={"/blog"} partiallyActive={true}>Blog</NavLink>
-          <NavLink to="/page-2">
-           About
-          </NavLink>
+          <NavLink to="/page-2">About</NavLink>
         </Box>
       </Flex>
     </Flex>

@@ -6,9 +6,11 @@ import Box from "@chakra-ui/core/dist/Box"
 import Flex from "@chakra-ui/core/dist/Flex"
 import BackgroundBorder from "../images/background.svg"
 import RecentPosts from "../components/recent-posts"
+import Typing from "react-typing-animation"
 
-import "./index.css"
-import { Button, Input } from "@chakra-ui/core"
+
+import './index.css'
+import NewsletterForm from "../components/newsletter-form"
 
 const IndexPage = () => (
   <Layout>
@@ -29,11 +31,12 @@ const IndexPage = () => (
         >
           <Box mb={8}>
             <Text
-              // fontWeight={200}
               color={"white"}
             >
               <Box fontSize={{ md: "4xl" }} fontWeight={"bold"}>
-                Become a better software developer
+                <Typing speed={50} cursor={"|"}>
+                  Become a better developer <Typing.Delay ms={1000} /><Typing.Backspace count={10}  /> software developer
+                </Typing>
               </Box>
               <Box fontSize={{ md: "2xl" }} fontWeight={300}>
                 Read high quality articles about data structures, software
@@ -50,20 +53,7 @@ const IndexPage = () => (
             </Text>
           </Box>
           <Box alignSelf={'flex-start'}>
-            <Box p={4} rounded={10} boxShadow={'xl'}>
-              <Text color={'white'} mb={4} fontWeight={300}>Subscribe to our newletter to stay up to date with latest content</Text>
-              <Box d={"flex"} flexWrap={'wrap'}>
-                <Box m={1}>
-                  <Input w={'2xs'} placeholder={'Enter your name'}/>
-                </Box>
-                <Box m={1}>
-                  <Input w={'2xs'} placeholder={'Enter your email address'}/>
-                </Box>
-                <Button m={1}>
-                  <Text>Subscribe</Text>
-                </Button>
-              </Box>
-            </Box>
+            <NewsletterForm/>
           </Box>
         </Box>
       </Box>
