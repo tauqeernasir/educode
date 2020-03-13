@@ -7,10 +7,11 @@ import Flex from "@chakra-ui/core/dist/Flex"
 import BackgroundBorder from "../images/background.svg"
 import RecentPosts from "../components/recent-posts"
 import Typing from "react-typing-animation"
-import backgrounds from '../components/backgrounds';
+import svgImages from '../components/svg-images';
 
 import "./index.css"
 import NewsletterForm from "../components/newsletter-form"
+import Topics from "../components/topics"
 
 const IndexPage = () => (
   <Layout>
@@ -25,7 +26,7 @@ const IndexPage = () => (
           py="100px"
           my={10}
           position="relative"
-          background={`url("${backgrounds["hero-1"]}")`}
+          background={`url("${svgImages["hero-1"]}")`}
           backgroundRepeat={'no-repeat'}
           backgroundPosition={'right'}
         >
@@ -66,6 +67,8 @@ const IndexPage = () => (
 
     {/* Posts container */}
     <RecentPosts />
+
+    <Topics/>
   </Layout>
 )
 
