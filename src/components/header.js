@@ -9,8 +9,8 @@ import useMedia from "use-media"
 
 const NavLink = ({ children, partiallyActive, ...props }) => (
   <Link
-    style={{ color: "white", padding: "5px 10px", marginRight: "10px" }}
-    activeStyle={{ color: "white", borderBottom: "1px solid white" }}
+    style={{ color: "white", padding: "5px 10px", borderRadius: '10px', marginRight: "10px", backgroundColor: "rgba(0,0,0,.1)" }}
+    activeStyle={{ color: "white", fontWeight: 500, backgroundColor: "rgba(255,255,255,.1)" }}
     partiallyActive={partiallyActive}
     {...props}
   >
@@ -38,18 +38,20 @@ const Header = ({ siteTitle }) => {
           maxW={"960px"}
         >
           <Flex flexDirection="row" justifyContent="center" alignItems="center">
-            <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
-              <Typing speed={1}>
-                <b style={{ fontSize: "130%" }}>\\ </b>{" "}
-                <Box as={"span"} d={isWide ? 'inline' : 'none'}>
-                  backslashes.io
-                </Box>
-              </Typing>
-            </Box>
+            <Link to={'/'}>
+              <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
+                <Typing speed={1}>
+                  <b style={{ fontSize: "130%" }}>\\ </b>{" "}
+                  <Box as={"span"} d={isWide ? 'inline' : 'none'}>
+                    backslashes.io
+                  </Box>
+                </Typing>
+              </Box>
+            </Link>
           </Flex>
           <Box fontWeight={300} fontSize={"1.1em"}>
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/blog"} partiallyActive={true}>
+            <NavLink to={"/blog"}>
               Blog
             </NavLink>
             <NavLink to="/page-2">About</NavLink>
