@@ -9,7 +9,16 @@ import { Divider, Image, Stack } from "@chakra-ui/core"
 import useMedia from "use-media"
 
 const Post = props => {
-  const { title, description, slug, thumbnail, date, author, avatar } = props
+  const {
+    title,
+    description,
+    slug,
+    thumbnail,
+    date,
+    author,
+    avatar,
+    timeToRead,
+  } = props
   return (
     <PseudoBox
       bg={"white"}
@@ -51,15 +60,16 @@ const Post = props => {
             {title}
           </Text>
         </Link>
-        <Stack isInline fontSize={{ xs: "xs", sm: "sm" }}>
-          <Text>
-            <i>written on {date}</i>
-          </Text>
-          <Text>
-            {" "}
-            by <b>{author}</b>
-          </Text>
-        </Stack>
+        <Flex fontSize={{ xs: "xs", sm: "sm" }}>
+          <Box flex={1}>
+            <Text>
+              <i>written on {date}</i> by <b>{author}</b>
+            </Text>
+          </Box>
+          <Box>
+            {timeToRead} min{timeToRead > 1 ? "s" : ""} read
+          </Box>
+        </Flex>
         <Divider />
         <Text fontSize={{ sm: "sm", md: "lg" }}>{description}</Text>
         <Box d={"flex"} alignItems={"center"}>
@@ -103,7 +113,7 @@ const RecentPosts = () => {
           node {
             frontmatter {
               title
-              date(formatString: "MMM, Do YYYY")
+              date(formatString: "MM, Do YYYY")
               thumbnail
               avatar
               author
@@ -112,6 +122,7 @@ const RecentPosts = () => {
             fields {
               slug
             }
+            timeToRead
           }
         }
       }
@@ -122,7 +133,7 @@ const RecentPosts = () => {
     <Box d={"flex"} justifyContent={"space-around"}>
       <Box
         bg={"white"}
-        p={4}
+        p={isWide ? 4 : 1}
         position={"relative"}
         top={-180}
         maxW={"90%"}
@@ -134,9 +145,9 @@ const RecentPosts = () => {
           p={1}
           rounded={10}
           position={"absolute"}
-          top={'45%'}
+          top={"45%"}
           left={-90}
-          transform={'rotate(-90deg)'}
+          transform={"rotate(-90deg)"}
         >
           <Text
             fontSize={"1.2em"}
@@ -148,17 +159,18 @@ const RecentPosts = () => {
             Recent blog posts
           </Text>
         </Box>
-        <Flex justifyContent={"space-around"} backgroundColor={"red"}>
+        <Flex justifyContent={"space-around"}>
           <Flex flexDir={isWide ? "row" : "column"} flexWrap={"wrap"}>
             {data.allMarkdownRemark.edges.map(edge => {
               const {
                 frontmatter,
                 excerpt,
                 fields: { slug },
+                timeToRead,
               } = edge.node
 
               return (
-                <Box m={4} key={frontmatter.title}>
+                <Box m={isWide ? 4 : 2} key={frontmatter.title}>
                   <Post
                     key={frontmatter.title}
                     title={frontmatter.title}
@@ -168,6 +180,7 @@ const RecentPosts = () => {
                     date={frontmatter.date}
                     avatar={frontmatter.avatar}
                     author={frontmatter.author}
+                    timeToRead={timeToRead}
                   />
                 </Box>
               )

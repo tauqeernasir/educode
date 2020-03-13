@@ -5,6 +5,7 @@ import Flex from "@chakra-ui/core/dist/Flex"
 import Text from "@chakra-ui/core/dist/Text"
 import Box from "@chakra-ui/core/dist/Box"
 import Typing from "react-typing-animation"
+import useMedia from "use-media"
 
 const NavLink = ({ children, partiallyActive, ...props }) => (
   <Link
@@ -17,40 +18,47 @@ const NavLink = ({ children, partiallyActive, ...props }) => (
   </Link>
 )
 
-const Header = ({ siteTitle }) => (
-  <Box>
-    <Flex
-      bg="#2e3192"
-      w="100%"
-      px={5}
-      py={8}
-      justifyContent="center"
-      alignItems="center"
-    >
+const Header = ({ siteTitle }) => {
+  const isWide = useMedia({ minWidth: 960 })
+
+  return (
+    <Box>
       <Flex
-        justifyContent="space-between"
+        bg="#2e3192"
+        w="100%"
+        px={5}
+        py={8}
+        justifyContent="center"
         alignItems="center"
-        flex={1}
-        maxW={"960px"}
       >
-        <Flex flexDirection="row" justifyContent="center" alignItems="center">
-          <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
-            <Typing>
-              <b style={{ fontSize: '130%'}}>\\ </b> backslashes.io
-            </Typing>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          flex={1}
+          maxW={"960px"}
+        >
+          <Flex flexDirection="row" justifyContent="center" alignItems="center">
+            <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
+              <Typing speed={1}>
+                <b style={{ fontSize: "130%" }}>\\ </b>{" "}
+                <Box as={"span"} d={isWide ? 'inline' : 'none'}>
+                  backslashes.io
+                </Box>
+              </Typing>
+            </Box>
+          </Flex>
+          <Box fontWeight={300} fontSize={"1.1em"}>
+            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/blog"} partiallyActive={true}>
+              Blog
+            </NavLink>
+            <NavLink to="/page-2">About</NavLink>
           </Box>
         </Flex>
-        <Box fontWeight={300} fontSize={"1.1em"}>
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/blog"} partiallyActive={true}>
-            Blog
-          </NavLink>
-          <NavLink to="/page-2">About</NavLink>
-        </Box>
       </Flex>
-    </Flex>
-  </Box>
-)
+    </Box>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

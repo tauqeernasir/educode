@@ -11,9 +11,9 @@ const NewsletterForm = () => {
           p={4}
           rounded={10}
           boxShadow={"xl"}
-          background={"linear-gradient(to bottom right, orange 10%,purple)"}
+          background={"linear-gradient(to bottom right,darkorange 10%,purple)"}
         >
-          <Text color={"white"} mb={4} fontSize={{ sm: "md", md: "xl" }}>
+          <Text color={"white"} mb={4} fontWeight={500} fontSize={{ sm: "md", md: "xl" }}>
             Subscribe to our newletter to stay up to date with latest content
           </Text>
           <Box d={"flex"} flexWrap={"wrap"}>

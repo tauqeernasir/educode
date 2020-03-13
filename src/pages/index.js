@@ -8,17 +8,13 @@ import BackgroundBorder from "../images/background.svg"
 import RecentPosts from "../components/recent-posts"
 import Typing from "react-typing-animation"
 
-
-import './index.css'
+import "./index.css"
 import NewsletterForm from "../components/newsletter-form"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Flex
-      justifyContent="space-around"
-      backgroundColor="#2e3192"
-    >
+    <Flex justifyContent="space-around" backgroundColor="#2e3192">
       <Box>
         <Box
           d="flex"
@@ -30,12 +26,12 @@ const IndexPage = () => (
           position="relative"
         >
           <Box mb={8}>
-            <Text
-              color={"white"}
-            >
+            <Text color={"white"}>
+              <Text className={'gradient-text'} fontSize={'sm'} fontWeight={700}>Welcome to backslashes.</Text>
               <Box fontSize={{ md: "4xl" }} fontWeight={"bold"}>
-                <Typing speed={50} cursor={"|"}>
-                  Become a better developer <Typing.Delay ms={1000} /><Typing.Backspace count={10}  /> software developer
+                <Typing speed={2} cursor={"|"}>
+                  Become a better developer <Typing.Delay ms={1000} />
+                  <Typing.Backspace count={10} /> software developer.
                 </Typing>
               </Box>
               <Box fontSize={{ md: "2xl" }} fontWeight={300}>
@@ -52,8 +48,8 @@ const IndexPage = () => (
               </Box>
             </Text>
           </Box>
-          <Box alignSelf={'flex-start'}>
-            <NewsletterForm/>
+          <Box alignSelf={"flex-start"}>
+            <NewsletterForm />
           </Box>
         </Box>
       </Box>

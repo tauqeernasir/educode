@@ -20,7 +20,7 @@ const Footer = () => {
       </Box>
       <Box d={"flex"} justifyContent={"center"} p={4} color={"white"}>
         <Box textAlign={'center'}>
-          <Box mb={2}>Follow us</Box>
+          <Box mb={2} className={'gradient-text'}>Follow us</Box>
           <Box>
             <Icon as={FiFacebook} fontSize={'2xl'} mr={2} />
             <Icon as={FiTwitter} fontSize={'2xl'} mr={2} />
