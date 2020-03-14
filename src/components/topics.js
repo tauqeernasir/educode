@@ -10,7 +10,7 @@ import Divider from "@chakra-ui/core/dist/Divider"
 import find from "lodash.find"
 import useMedia from "use-media"
 import Image from "@chakra-ui/core/dist/Image"
-import SimpleGrid from "@chakra-ui/core/dist/SimpleGrid"
+import { motion } from "framer-motion"
 
 const topics = [
   {
@@ -24,62 +24,103 @@ const topics = [
     imageUri: svgImages["react-icon"],
     name: "react",
     displayName: "ReactJS",
-    description: "ReactJS is a Javascript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications."
+    description:
+      "ReactJS is a Javascript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.",
   },
   {
     imageUri: svgImages["html5-icon"],
     name: "html5",
     displayName: "HTML5",
-    description: "HTML5 is a software solution stack that defines the properties and behaviors of web page content by implementing a markup-based pattern to it. HTML5 was the fifth and current major version of HTML that is a World Wide Web Consortium (W3C) recommendation. The current specification is known as the HTML Living Standard and is maintained by a consortium of the major browser vendors (Apple, Google, Mozilla, and Microsoft), the Web Hypertext Application Technology Working Group (WHATWG)."
+    description:
+      "HTML5 is a software solution stack that defines the properties and behaviors of web page content by implementing a markup-based pattern to it. HTML5 was the fifth and current major version of HTML that is a World Wide Web Consortium (W3C) recommendation. The current specification is known as the HTML Living Standard and is maintained by a consortium of the major browser vendors (Apple, Google, Mozilla, and Microsoft), the Web Hypertext Application Technology Working Group (WHATWG).",
   },
   {
     imageUri: svgImages["css3-icon"],
     name: "css3",
     displayName: "CSS3",
-    description: "Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts."
+    description:
+      "Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript. CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.",
   },
   {
     imageUri: svgImages["nodejs-icon"],
     name: "nodejs",
     displayName: "NodeJS",
-    description: "Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a \"JavaScript everywhere\" paradigm, unifying web-application development around a single programming language, rather than different languages for server- and client-side scripts."
+    description:
+      'Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user\'s web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm, unifying web-application development around a single programming language, rather than different languages for server- and client-side scripts.',
   },
   {
     imageUri: svgImages["ts-icon"],
     name: "typescript",
     displayName: "Typescript",
-    description: "TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript. As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. TypeScript may be used to develop JavaScript applications for both client-side and server-side execution (as with Node.js or Deno)."
+    description:
+      "TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript. As TypeScript is a superset of JavaScript, existing JavaScript programs are also valid TypeScript programs. TypeScript may be used to develop JavaScript applications for both client-side and server-side execution (as with Node.js or Deno).",
   },
 ]
 
 const TopicIcon = props => {
-  const { imageUri, selected, setSelected, name, ...rest } = props
+  const variants = {
+    selected: {
+      opacity: 1,
+      scale: 1.2,
+      translateY: -10,
+    },
+    unselected: {
+      opacity: 0.5,
+      scale: 1,
+      translateY: 0,
+    },
+  }
+
+  const { imageUri, selected, setSelected, name, displayName, ...rest } = props
   return (
-    <Box
-      pb={1}
-      borderBottom={
-        selected === name ? "1px dashed rgba(255, 255, 255, .5)" : "none"
-      }
-      onClick={() => setSelected(name)}
-    >
-      <PseudoBox
-        m={4}
-        w={100}
-        h={100}
-        cursor="pointer"
-        background={`url("${imageUri}")`}
-        backgroundRepeat={"no-repeat"}
-        objectFit={"cover"}
-        backgroundPosition={"center center"}
-        transition="all .4s"
-        {...(selected === name && { transform: "scale(1.2) translateY(-5px)" })}
-        _hover={{
-          transform: "scale(1.2) translateY(-5px)",
+    <Box pb={1} onClick={() => setSelected(name)}>
+      <motion.div
+        animate={selected === name ? "selected" : "unselected"}
+        variants={variants}
+        whileTap={{
+          scale: 0.9,
         }}
-        {...rest}
-      />
+        whileHover={"hovering"}
+      >
+        <PseudoBox
+          m={4}
+          w={100}
+          h={100}
+          cursor="pointer"
+          background={`url("${imageUri}")`}
+          backgroundRepeat={"no-repeat"}
+          objectFit={"cover"}
+          backgroundPosition={"center center"}
+          transition="all .4s"
+          {...rest}
+        ></PseudoBox>
+        <motion.div
+          initial={"hidden"}
+          variants={{
+            hovering: { opacity: 1, y: 10 },
+            hidden: { opacity: 0, y: -10 },
+          }}
+        >
+          <Text m={0} textAlign={"center"} color={"white"}>
+            {displayName}
+          </Text>
+        </motion.div>
+      </motion.div>
     </Box>
   )
+}
+
+const topicDisplayVariants = {
+  selected: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  },
+  unselected: {
+    opacity: 0,
+    y: -20,
+    scale: 0.7,
+  },
 }
 
 const Topics = () => {
@@ -91,12 +132,13 @@ const Topics = () => {
 
   return (
     <>
+      <Box transform={"scaleY(-1) scaleX(-1)"}>
+        <BackgroundBorder />
+      </Box>
       <Flex
         flexDir={isWide ? "row" : "column"}
         backgroundColor={"#2e3192"}
         py={4}
-        background={"linear-gradient(to top left, #2e3192 50%, purple)"}
-
       >
         <Box my={100} minH={400} flex={1}>
           <Box textAlign={"center"} mb={10}>
@@ -120,6 +162,7 @@ const Topics = () => {
                   name={topic.name}
                   selected={selectedTopic}
                   setSelected={setSelectedTopic}
+                  displayName={topic.displayName}
                 />
               )
             })}
