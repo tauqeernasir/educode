@@ -38,13 +38,13 @@ const IndexPage = () => {
                   initial='closed'
                   animate='open'
                   variants={{
-                    open: {
-                      transition: {
-                        delayChildren: 0,
-                        staggerChildren: 0.125,
-                      }
-                    },
-                  }}
+                  open: {
+                    transition: {
+                      delayChildren: 0,
+                      staggerChildren: 0.125,
+                    }
+                  },
+                }}
                 >
                   <motion.div variants={{ open: { x: 0, opacity: 1 }, closed: { x: -100, opacity: 0} }}>
                     <Text
@@ -57,7 +57,7 @@ const IndexPage = () => {
                   </motion.div>
                   <motion.div variants={{ open: { x: 0, opacity: 1 }, closed: { x: -100, opacity: 0} }}>
                     <Box fontSize={{ md: "4xl" }} fontWeight={"bold"}>
-                      <Typing speed={2} cursor={"|"}>
+                      <Typing speed={100} cursor={"|"}>
                         Become a better developer <Typing.Delay ms={1000} />
                         <Typing.Backspace count={10} /> software developer.
                       </Typing>

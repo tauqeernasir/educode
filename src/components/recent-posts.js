@@ -135,30 +135,30 @@ const RecentPosts = () => {
         bg={"white"}
         p={isWide ? 4 : 1}
         position={"relative"}
-        top={-180}
+        // top={-180}
         maxW={"90%"}
         rounded={5}
-        boxShadow={"2xl"}
+        // boxShadow={"2xl"}
       >
-        <Box
-          background={"rgba(0, 0, 0, .1)"}
-          p={1}
-          rounded={10}
-          position={"absolute"}
-          top={"45%"}
-          left={-90}
-          transform={"rotate(-90deg)"}
-        >
-          <Text
-            fontSize={"1.2em"}
-            color={"white"}
-            background={"linear-gradient(to bottom right, purple 30%, orange)"}
-            p={2}
-            rounded={10}
-          >
-            Recent blog posts
-          </Text>
-        </Box>
+        {/*<Box*/}
+        {/*  background={"rgba(0, 0, 0, .1)"}*/}
+        {/*  p={1}*/}
+        {/*  rounded={10}*/}
+        {/*  position={"absolute"}*/}
+        {/*  top={"45%"}*/}
+        {/*  left={-90}*/}
+        {/*  transform={"rotate(-90deg)"}*/}
+        {/*>*/}
+        {/*  <Text*/}
+        {/*    fontSize={"1.2em"}*/}
+        {/*    color={"white"}*/}
+        {/*    background={"linear-gradient(to bottom right, purple 30%, orange)"}*/}
+        {/*    p={2}*/}
+        {/*    rounded={10}*/}
+        {/*  >*/}
+        {/*    Recent blog posts*/}
+        {/*  </Text>*/}
+        {/*</Box>*/}
         <Flex justifyContent={"space-around"}>
           <Flex flexDir={isWide ? "row" : "column"} flexWrap={"wrap"}>
             {data.allMarkdownRemark.edges.map(edge => {
