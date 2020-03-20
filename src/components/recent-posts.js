@@ -81,7 +81,7 @@ const Post = props => {
               <Text>ReactJS</Text>
             </Badge>
           </Box>
-          <Link to={`/blog/${slug}`}>
+          <Link to={`/post/${slug}`}>
             <Text
               rounded={5}
               fontSize={".9em"}

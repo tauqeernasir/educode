@@ -95,7 +95,7 @@ const Header = ({ siteTitle }) => {
                 <NavLink to={"/"}>Home</NavLink>
               </motion.div>
               <motion.div variants={variantsChildren}  style={{ display: 'inline-block'}}>
-                <NavLink to={"/blog"}>Blog</NavLink>
+                <NavLink to={"/blog/page/1"}>Blog</NavLink>
               </motion.div>
               <motion.div variants={variantsChildren}  style={{ display: 'inline-block'}}>
                 <NavLink to="/page-2">About</NavLink>
