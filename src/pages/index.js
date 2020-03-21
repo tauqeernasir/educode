@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Text from "@chakra-ui/core/dist/Text"
@@ -48,8 +48,9 @@ const IndexPage = () => {
                 >
                   <motion.div variants={{ open: { x: 0, opacity: 1 }, closed: { x: -100, opacity: 0} }}>
                     <Text
-                      className={"gradient-text"}
+                      // className={"gradient-text"}
                       fontSize={"sm"}
+                      color={'orange.300'}
                       fontWeight={700}
                     >
                       Welcome to backslashes.

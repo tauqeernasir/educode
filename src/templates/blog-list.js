@@ -9,6 +9,7 @@ import Text from "@chakra-ui/core/dist/Text"
 import useMedia from "use-media"
 import Badge from "@chakra-ui/core/dist/Badge"
 import { graphql, Link } from "gatsby"
+import { AnimatePresence, motion } from "framer-motion"
 
 const Post = props => {
   const isWide = useMedia({ minWidth: 960 })
@@ -16,14 +17,28 @@ const Post = props => {
 
   return (
     <Link to={`/post/${data.fields.slug}`}>
-      <Flex borderWidth={1} boxShadow={"lg"} p={4} mb={4} rounded={10}>
+      <Flex
+        borderWidth={1}
+        boxShadow={"lg"}
+        p={4}
+        mb={4}
+        rounded={10}
+        bg={"white"}
+      >
         <Stack isInline={isWide} alignItems={"flex-start"}>
           <Box w={isWide ? 300 : "auto"} alignSelf={"center"}>
-            <Image
-              src={data.frontmatter.thumbnail}
-              rounded={10}
-              boxShadow={"lg"}
-            />
+            <motion.div
+              variants={{
+                hidden: { scale: 0 },
+                shown: { scale: 1, transition: { type: "spring" } },
+              }}
+            >
+              <Image
+                src={data.frontmatter.thumbnail}
+                rounded={10}
+                boxShadow={"lg"}
+              />
+            </motion.div>
           </Box>
           <Flex flexDir={"column"} flex={2}>
             <Box>
@@ -55,6 +70,30 @@ const Post = props => {
   )
 }
 
+const postVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+    y: "100vh",
+  },
+  shown: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      type: "tween",
+      when: "beforeChildren",
+      // staggerChildren: 1
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0,
+    y: "100vh",
+  },
+}
+
 const Blog = props => {
   const isWide = useMedia({ minWidth: 960 })
 
@@ -67,15 +106,26 @@ const Blog = props => {
     <Layout>
       <SEO title="Home" />
       <Flex m={4} flexDir={isWide ? "row" : "column"}>
-        <Stack flex={1} px={4}>
-          <Text>Left Content</Text>
-        </Stack>
+        <Stack flex={1} px={4}></Stack>
 
         <Stack flex={3} maxW={960}>
-          {data.allMarkdownRemark.edges.map((edge, i) => {
-            return <Post key={i} data={edge.node} />
-          })}
-
+          <AnimatePresence>
+            <motion.div
+              exit={"exit"}
+              initial={"hidden"}
+              animate={"shown"}
+              variants={{ shown: { transition: { staggerChildren: 0.2 } } }}
+              // transition={{ staggerChildren: 3 }}
+            >
+              {data.allMarkdownRemark.edges.map((edge, i) => {
+                return (
+                  <motion.div key={i} variants={postVariants}>
+                    <Post key={i} data={edge.node} />
+                  </motion.div>
+                )
+              })}
+            </motion.div>
+          </AnimatePresence>
           <Flex my={10}>
             {currentPage > 1 && (
               <Link to={`/blog/page/${currentPage - 1}`}>Newer posts</Link>
@@ -87,9 +137,7 @@ const Blog = props => {
           </Flex>
         </Stack>
 
-        <Stack flex={1} px={4}>
-          <Text>Right Content</Text>
-        </Stack>
+        <Stack flex={1} px={4}></Stack>
       </Flex>
     </Layout>
   )
