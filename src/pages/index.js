@@ -53,7 +53,7 @@ const IndexPage = () => {
                       color={'orange.300'}
                       fontWeight={700}
                     >
-                      Welcome to backslashes.
+                      Welcome to devplode.
                     </Text>
                   </motion.div>
                   <motion.div variants={{ open: { x: 0, opacity: 1 }, closed: { x: -100, opacity: 0} }}>
@@ -75,7 +75,7 @@ const IndexPage = () => {
                     <Box fontWeight={200}>
                       Follow our community on twitter{" "}
                       <b>
-                        <i>@backslashes_io</i>
+                        <i>@devplode</i>
                       </b>{" "}
                       to get updates about new content.
                     </Box>

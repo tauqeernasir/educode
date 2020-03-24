@@ -79,7 +79,7 @@ const Header = ({ siteTitle }) => {
                 <Typing speed={50}>
                   <b style={{ fontSize: "130%" }}>\\ </b>{" "}
                   <Box as={"span"} d={isWide ? "inline" : "none"}>
-                    backslashes.io
+                    devplode.com
                   </Box>
                 </Typing>
               </Box>

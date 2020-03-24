@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Backslashes.io",
+    title: "Devplode",
     description:
       "A platform for software developers to read about code and tech.",
     author: "Tauqeer Nasir",

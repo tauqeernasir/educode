@@ -30,7 +30,7 @@ const variantsChildren = {
 
 const NewsletterForm = () => {
   return (
-    <motion.div drag={'x'} initial={"hidden"} animate={"visible"} variants={variants}>
+    <motion.div initial={"hidden"} animate={"visible"} variants={variants}>
       <Box p={2} background={"rgba(255, 255, 255, .05)"} rounded={10}>
         <Box p={2} background={"rgba(255, 255, 255, .05)"} rounded={10}>
           <Box
