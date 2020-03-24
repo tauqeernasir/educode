@@ -33,10 +33,14 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [
-          "gatsby-remark-prismjs"
-        ]
-      }
-    }
+        plugins: ["gatsby-remark-prismjs"],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint: "https://gmail.us19.list-manage.com/subscribe/post?u=4b31af93ff4787fdfb547d1f3&amp;id=7b17c76bb8",
+      },
+    },
   ],
 }

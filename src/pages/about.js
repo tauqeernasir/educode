@@ -54,7 +54,7 @@ const About = props => {
           <Text>
             If you are interested in writing on this platform, contact us at{" "}
             <i>
-              <b>info@backslahses.io</b>
+              <b>info@devplode.com</b>
             </i>
           </Text>
         </Stack>

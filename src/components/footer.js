@@ -45,7 +45,7 @@ const Footer = () => {
         </Box>
       </Box>
       <Box d={"flex"} justifyContent={"center"} p={4} color={"white"} mb={4}>
-        All rights reserved © 2020 by Backslashes.io
+        All rights reserved © 2020 by Devplode.com
       </Box>
     </SimpleGrid>
   )
