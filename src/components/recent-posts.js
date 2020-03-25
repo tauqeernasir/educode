@@ -18,6 +18,7 @@ const Post = props => {
     author,
     avatar,
     timeToRead,
+    tags = []
   } = props
   return (
     <PseudoBox
@@ -74,12 +75,13 @@ const Post = props => {
         <Text fontSize={{ sm: "sm", md: "lg" }}>{description}</Text>
         <Box d={"flex"} alignItems={"center"}>
           <Box flex={1}>
-            <Badge variant={"outline"} variantColor={"orange"} mr={1}>
-              <Text>Javascript</Text>
-            </Badge>
-            <Badge variant={"outline"}>
-              <Text>ReactJS</Text>
-            </Badge>
+            {tags.map((tag) => {
+              return (
+                <Badge variantColor={"orange"} mr={1}>
+                  <Text>{tag}</Text>
+                </Badge>
+              )
+            })}
           </Box>
           <Link to={`/post/${slug}`}>
             <Text
@@ -117,6 +119,7 @@ const RecentPosts = () => {
               thumbnail
               avatar
               author
+              tags
             }
             excerpt
             fields {
@@ -181,6 +184,7 @@ const RecentPosts = () => {
                     avatar={frontmatter.avatar}
                     author={frontmatter.author}
                     timeToRead={timeToRead}
+                    tags={frontmatter.tags}
                   />
                 </Box>
               )
