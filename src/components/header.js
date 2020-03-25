@@ -30,13 +30,12 @@ const NavLink = ({ children, partiallyActive, ...props }) => (
 )
 
 const variants = {
-  hidden: {
-  },
+  hidden: {},
   visible: {
     scale: 1,
     transition: {
-      delayChildren: .5,
-      staggerChildren: .125
+      delayChildren: 0.5,
+      staggerChildren: 0.125,
     },
   },
 }
@@ -77,9 +76,13 @@ const Header = ({ siteTitle }) => {
             <Link to={"/"}>
               <Box fontSize={"xl"} fontWeight={"bold"} color={"white"}>
                 <Typing speed={50}>
-                  <b style={{ fontSize: "130%" }}>\\ </b>{" "}
+                  {
+                    <Box as={"span"} d={!isWide ? "inline" : "none"}>
+                      {"</>"}
+                    </Box>
+                  }
                   <Box as={"span"} d={isWide ? "inline" : "none"}>
-                    devplode.com
+                    &lt;Devplode /&gt;
                   </Box>
                 </Typing>
               </Box>
@@ -91,13 +94,22 @@ const Header = ({ siteTitle }) => {
             variants={variants}
           >
             <Box fontWeight={300} fontSize={"1.1em"}>
-              <motion.div variants={variantsChildren} style={{ display: 'inline-block'}}>
+              <motion.div
+                variants={variantsChildren}
+                style={{ display: "inline-block" }}
+              >
                 <NavLink to={"/"}>Home</NavLink>
               </motion.div>
-              <motion.div variants={variantsChildren}  style={{ display: 'inline-block'}}>
+              <motion.div
+                variants={variantsChildren}
+                style={{ display: "inline-block" }}
+              >
                 <NavLink to={"/blog/page/1"}>Blog</NavLink>
               </motion.div>
-              <motion.div variants={variantsChildren}  style={{ display: 'inline-block'}}>
+              <motion.div
+                variants={variantsChildren}
+                style={{ display: "inline-block" }}
+              >
                 <NavLink to="/about">About</NavLink>
               </motion.div>
             </Box>
