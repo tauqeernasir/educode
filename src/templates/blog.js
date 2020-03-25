@@ -10,6 +10,8 @@ import "./blog.css"
 import SEO from "../components/seo"
 import Stack from "@chakra-ui/core/dist/Stack"
 
+import Disqus from "disqus-react"
+
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -28,6 +30,15 @@ const Blog = props => {
   const {
     data: { markdownRemark },
   } = props
+
+  const baseUrl = 'https://devplode.netlify.com'
+
+  const disqusShortname = 'devplode'
+  const disqusConfig = {
+    identifier: markdownRemark.id,
+    title: markdownRemark.frontmatter.title,
+    url: baseUrl + props.pageContext.slug
+  }
 
   return (
     <Layout>
@@ -48,6 +59,7 @@ const Blog = props => {
               {markdownRemark.frontmatter.tags &&
                 markdownRemark.frontmatter.tags.map(tag => (
                   <Badge
+                    key={tag}
                     p={1}
                     mr={1}
                     color={"white"}
@@ -72,6 +84,9 @@ const Blog = props => {
             <Text>
               <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
             </Text>
+          </Box>
+          <Box mt={4}>
+            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           </Box>
         </Box>
       </Box>

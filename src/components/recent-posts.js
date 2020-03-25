@@ -77,7 +77,7 @@ const Post = props => {
           <Box flex={1}>
             {tags.map((tag) => {
               return (
-                <Badge variantColor={"orange"} mr={1}>
+                <Badge key={tag} variantColor={"orange"} mr={1}>
                   <Text>{tag}</Text>
                 </Badge>
               )

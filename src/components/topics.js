@@ -110,9 +110,10 @@ const Topics = () => {
             </Text>
           </Box>
           <Flex flexWrap={"wrap"} justifyContent={"center"} px={4}>
-            {(topics || []).map(topic => {
+            {(topics || []).map((topic, i) => {
               return (
                 <TopicIcon
+                  key={i}
                   imageUri={topic.imageUri}
                   name={topic.name}
                   selected={selectedTopic}
