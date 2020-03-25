@@ -55,7 +55,7 @@ const Post = props => {
                   <b>{data.frontmatter.author}</b>
                 </Text>
               </Box>
-              <Box>2 minutes read</Box>
+              <Box>{data.timeToRead} {data.timeToRead > 1 ? 'mins' : 'min'} read</Box>
             </Flex>
             <Box>
               <Heading fontSize={"2xl"} className={"gradient-text"}>

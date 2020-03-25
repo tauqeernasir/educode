@@ -1,6 +1,6 @@
 ---
 title: "Typescript for advance users - Part 2"
-date: "2020-03-25"
+date: "2020-03-26"
 tags:
   - typescript
 author: "Tauqeer Nasir"
