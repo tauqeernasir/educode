@@ -87,11 +87,15 @@ const Blog = props => {
           })}
           <Flex my={10}>
             {currentPage > 1 && (
-              <Link to={`/blog/page/${currentPage - 1}`}>Newer posts</Link>
+              <Link to={`/blog/page/${currentPage - 1}`}>
+                <Button>Newer posts</Button>
+              </Link>
             )}
             <Box flex={1}></Box>
             {currentPage < totalPages && (
-              <Link to={`/blog/page/${currentPage + 1}`}>Older posts</Link>
+              <Link to={`/blog/page/${currentPage + 1}`}>
+                <Button>Older posts</Button>
+              </Link>
             )}
           </Flex>
         </Stack>
