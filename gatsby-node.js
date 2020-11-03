@@ -16,8 +16,8 @@ module.exports.onCreateNode = ({ node, actions }) => {
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogTemplate = path.resolve("./src/templates/blog.js")
-  const blogListTemplate = path.resolve("./src/templates/blog-list.js")
+  const blogTemplate = path.resolve("./src/templates/blog.tsx")
+  const blogListTemplate = path.resolve("./src/templates/blog-list.tsx")
 
   const res = await graphql(`
     query {
@@ -61,8 +61,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
         limit: postPerPage,
         skip: index * postPerPage,
         currentPage,
-        totalPages: numberOfPages
-      }
+        totalPages: numberOfPages,
+      },
     })
   })
 }
