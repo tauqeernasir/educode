@@ -14,7 +14,7 @@ const Footer = () => {
           <NewsletterForm />
         </Box>
       </Box>
-      <Box d={"flex"} justifyContent={"center"} p={4} color={"white"}>
+      <Box d={"flex"} justifyContent={"center"} p={4}>
         <Box textAlign={"center"}>
           <Box mb={2}>Follow us</Box>
           <Box>
@@ -24,7 +24,7 @@ const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Box d={"flex"} justifyContent={"center"} p={4} color={"white"}>
+      <Box d={"flex"} justifyContent={"center"} p={4}>
         <Box>
           <Box as={"span"} mr={4} fontWeight={"bold"}>
             <Link>Home</Link>
@@ -40,7 +40,7 @@ const Footer = () => {
           </Box>
         </Box>
       </Box>
-      <Box d={"flex"} justifyContent={"center"} p={4} color={"white"} mb={4}>
+      <Box d={"flex"} justifyContent={"center"} p={4} mb={4}>
         All rights reserved © 2020 by educode.com
       </Box>
     </SimpleGrid>
