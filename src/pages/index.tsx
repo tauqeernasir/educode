@@ -60,7 +60,9 @@ const IndexPage = () => {
       </Flex>
 
       {/* Posts container */}
-      <RecentPosts />
+      <Box mb="120px">
+        <RecentPosts />
+      </Box>
 
       <Topics />
     </Layout>
