@@ -34,9 +34,12 @@ const IndexPage = () => {
                 <Box
                   fontSize={{ md: "4xl" }}
                   fontWeight={"bold"}
+                  lineHeight={["auto", "40px"]}
+                  mb={4}
                   color={colorMode === "light" ? "purple.600" : "inherit"}
+                  className="animated-gradient-text"
                 >
-                  Become a better by reading real world solutions.
+                  Become a better developer by reading real world solutions.
                 </Box>
                 <Box fontSize={{ md: "xl" }} fontWeight={300}>
                   Read high quality articles about data structures, software

@@ -1,6 +1,34 @@
 .gradient-text {
-    /*font-size: 72px;*/
-    background: linear-gradient(to right,#2e3192 10%, darkmagenta);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /*font-size: 72px;*/
+  background: linear-gradient(to right, #2e3192 10%, darkmagenta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.animated-gradient-text {
+  /* color: #f35626; */
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 10s infinite linear;
+  animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+@keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }

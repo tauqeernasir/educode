@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <ColorModeProvider>
+      <ColorModeProvider value={"dark"}>
         <CSSReset />
         <Box maxW="960px" mx="auto">
           <Header siteTitle={data.site.siteMetadata.title} />
