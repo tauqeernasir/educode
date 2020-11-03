@@ -9,8 +9,11 @@ import RecentPosts from "../components/recent-posts"
 import "./index.css"
 import NewsletterForm from "../components/newsletter-form"
 import Topics from "../components/topics"
+import { useColorMode } from "@chakra-ui/core"
 
 const IndexPage = () => {
+  const { colorMode } = useColorMode()
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -19,14 +22,23 @@ const IndexPage = () => {
           <Box d="flex" flexDir={"column"} px={4} py="100px" my={10}>
             <Box mb={8}>
               <Box>
-                <Text fontSize={"sm"} color={"orange.300"} fontWeight={700}>
+                <Text
+                  fontSize={"md"}
+                  color={colorMode === "light" ? "purple.600" : "orange.300"}
+                  fontWeight={300}
+                  fontStyle="italic"
+                >
                   Welcome to Educode.
                 </Text>
 
-                <Box fontSize={{ md: "4xl" }} fontWeight={"bold"}>
-                  Become a better developer software developer.
+                <Box
+                  fontSize={{ md: "4xl" }}
+                  fontWeight={"bold"}
+                  color={colorMode === "light" ? "purple.600" : "inherit"}
+                >
+                  Become a better by reading real world solutions.
                 </Box>
-                <Box fontSize={{ md: "2xl" }} fontWeight={300}>
+                <Box fontSize={{ md: "xl" }} fontWeight={300}>
                   Read high quality articles about data structures, software
                   development, web development, testing, designing and software
                   architecture.

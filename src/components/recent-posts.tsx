@@ -31,7 +31,7 @@ const Post = props => {
         />
         <Box>
           <Link to={`/blog/${slug}`}>
-            <Text fontSize={{ md: "xl", lg: "2xl" }} fontWeight={500} mt={3}>
+            <Text fontSize={{ md: "xl", lg: "2xl" }} fontWeight={800} mt={3}>
               {title}
             </Text>
             <Box fontSize="sm">
@@ -107,7 +107,7 @@ const RecentPosts = () => {
   `)
 
   return (
-    <Box px={[2, 2, 0, 0]}>
+    <Box px={[4, 4, 0, 0]}>
       <Flex justifyContent={"space-around"}>
         <Stack spacing={16}>
           {data.allMarkdownRemark.edges.map(edge => {
