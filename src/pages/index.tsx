@@ -55,7 +55,7 @@ const IndexPage = () => {
                 </Box>
               </Box>
             </Box>
-            <Box alignSelf={"flex-start"}>
+            <Box mt={8}>
               <NewsletterForm />
             </Box>
           </Box>

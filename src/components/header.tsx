@@ -69,9 +69,9 @@ const Header = ({ siteTitle }) => {
               </NavLink>
             </Box>
 
-            <Button onClick={() => toggleColorMode()}>
+            {/* <Button onClick={() => toggleColorMode()}>
               {colorMode === "light" ? <Box as={FiMoon} /> : <Box as={FiSun} />}
-            </Button>
+            </Button> */}
           </Stack>
         </Flex>
       </Flex>
