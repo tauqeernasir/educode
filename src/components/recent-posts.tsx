@@ -33,7 +33,7 @@ const Post = props => {
         />
         <Box>
           <Box mb={4}>
-            <Link to={`/blog/${slug}`}>
+            <Link to={`/post/${slug}`}>
               <Text fontSize={{ md: "xl", lg: "2xl" }} fontWeight={800} mt={3}>
                 {title}
               </Text>
