@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Devplode",
+    title: "Educode",
+    tagline: "Educate yourself about code",
     description:
       "A platform for software developers to read about code and tech.",
     author: "Tauqeer Nasir",
@@ -39,7 +40,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
-        endpoint: "https://gmail.us19.list-manage.com/subscribe/post?u=4b31af93ff4787fdfb547d1f3&amp;id=7b17c76bb8",
+        endpoint:
+          "https://gmail.us19.list-manage.com/subscribe/post?u=4b31af93ff4787fdfb547d1f3&amp;id=7b17c76bb8",
       },
     },
     {
@@ -68,6 +70,6 @@ module.exports = {
         // siteSpeedSampleRate: 10,
         // cookieDomain: "example.com",
       },
-    }
+    },
   ],
 }

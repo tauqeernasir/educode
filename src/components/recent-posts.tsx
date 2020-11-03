@@ -18,46 +18,19 @@ const Post = props => {
     author,
     avatar,
     timeToRead,
-    tags = []
+    tags = [],
   } = props
   return (
-    <PseudoBox
-      bg={"white"}
-      style={{
-        boxShadow:
-          "0 20px 25px -5px rgba(85, 60, 154, .3), 0 10px 10px -5px rgb(85, 60, 154, .3)",
-      }}
-      p={4}
-      rounded={5}
-      borderWidth={1}
-      borderColor={"grey.400"}
-      maxW={480}
-      minH={500}
-      transition={"all .3s"}
-      _hover={{
-        boxShadow: "sm",
-        backgroundColor: "gray.100",
-        cursor: "pointer",
-      }}
-    >
+    <PseudoBox>
       <Box fontWeight={300} position={"relative"}>
         <Image
           src={thumbnail}
           boxShadow={"2xl"}
-          opacity={0.3}
           rounded={10}
-          style={{ filter: "blur(1.5px)" }}
-        />
-        <Image
-          src={thumbnail}
-          position={"absolute"}
-          right={-25}
-          top={-25}
-          rounded={10}
-          boxShadow={"2xl"}
+          w={["200px", null, null, "400px"]}
         />
         <Link to={`/blog/${slug}`}>
-          <Text fontSize={"xl"} fontWeight={"bold"} color={"purple.700"} mt={3}>
+          <Text fontSize={"xl"} fontWeight={"bold"} mt={3}>
             {title}
           </Text>
         </Link>
@@ -75,7 +48,7 @@ const Post = props => {
         <Text fontSize={{ sm: "sm", md: "lg" }}>{description}</Text>
         <Box d={"flex"} alignItems={"center"}>
           <Box flex={1}>
-            {tags.map((tag) => {
+            {tags.map(tag => {
               return (
                 <Badge key={tag} variantColor={"orange"} mr={1}>
                   <Text>{tag}</Text>
@@ -134,34 +107,7 @@ const RecentPosts = () => {
 
   return (
     <Box d={"flex"} justifyContent={"space-around"}>
-      <Box
-        bg={"white"}
-        p={isWide ? 4 : 1}
-        position={"relative"}
-        // top={-180}
-        maxW={"90%"}
-        rounded={5}
-        // boxShadow={"2xl"}
-      >
-        {/*<Box*/}
-        {/*  background={"rgba(0, 0, 0, .1)"}*/}
-        {/*  p={1}*/}
-        {/*  rounded={10}*/}
-        {/*  position={"absolute"}*/}
-        {/*  top={"45%"}*/}
-        {/*  left={-90}*/}
-        {/*  transform={"rotate(-90deg)"}*/}
-        {/*>*/}
-        {/*  <Text*/}
-        {/*    fontSize={"1.2em"}*/}
-        {/*    color={"white"}*/}
-        {/*    background={"linear-gradient(to bottom right, purple 30%, orange)"}*/}
-        {/*    p={2}*/}
-        {/*    rounded={10}*/}
-        {/*  >*/}
-        {/*    Recent blog posts*/}
-        {/*  </Text>*/}
-        {/*</Box>*/}
+      <Box>
         <Flex justifyContent={"space-around"}>
           <Flex flexDir={isWide ? "row" : "column"} flexWrap={"wrap"}>
             {data.allMarkdownRemark.edges.map(edge => {
