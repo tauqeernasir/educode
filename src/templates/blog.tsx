@@ -31,13 +31,13 @@ const Blog = props => {
     data: { markdownRemark },
   } = props
 
-  const baseUrl = 'https://devplode.netlify.com'
+  const baseUrl = "https://devplode.netlify.com"
 
-  const disqusShortname = 'devplode'
+  const disqusShortname = "devplode"
   const disqusConfig = {
     identifier: markdownRemark.id,
     title: markdownRemark.frontmatter.title,
-    url: baseUrl + props.pageContext.slug
+    url: baseUrl + props.pageContext.slug,
   }
 
   return (
@@ -63,7 +63,7 @@ const Blog = props => {
                     p={1}
                     mr={1}
                     color={"white"}
-                    backgroundColor={"purple.800"}
+                    backgroundColor={"purple.500"}
                   >
                     <Text>
                       <Box
@@ -80,13 +80,16 @@ const Blog = props => {
                 ))}
             </Box>
           </Box>
-          <Box className={"blog--container"}>
+          <Box className={"blog--container"} mb={16}>
             <Text>
               <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
             </Text>
           </Box>
           <Box mt={4}>
-            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+            <Disqus.DiscussionEmbed
+              shortname={disqusShortname}
+              config={disqusConfig}
+            />
           </Box>
         </Box>
       </Box>
