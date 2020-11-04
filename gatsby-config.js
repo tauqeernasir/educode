@@ -1,5 +1,5 @@
 module.exports = {
-  prefixPath: "/educode",
+  pathPrefix: "/educode",
   siteMetadata: {
     title: "Educode",
     tagline: "Educate yourself about code",
