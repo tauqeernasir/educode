@@ -1,0 +1,27 @@
+name: Deploy to Github Pages
+on:
+  push:
+    branches: [master]
+
+env:
+  CI: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Intall dependecies
+        run: |
+          npm install -g yarn
+          yarn install
+      - name: Deploy to Github pages
+        run: |
+          git config user.email "tauqeer.insta@gmail.com"
+          git config user.email "Tauqeer Nasir"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          yarn run deploy
