@@ -27,7 +27,7 @@ const Post = props => {
           </Box>
           <Flex flexDir={"column"} flex={2}>
             <Box>
-              {data.frontmatter.tags.map((tag) => (
+              {data.frontmatter.tags.map(tag => (
                 <Badge key={tag} variantColor={"orange"} mr={1}>
                   <Text>{tag}</Text>
                 </Badge>
@@ -90,7 +90,7 @@ const Blog = () => {
       <SEO title="Home" />
       <Flex m={4} flexDir={isWide ? "row" : "column"}>
         <Stack flex={1} px={4}>
-          <Text>Left Content</Text>
+          <Text color="red.500">Left Content</Text>
         </Stack>
 
         <Stack flex={3} maxW={960}>

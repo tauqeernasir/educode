@@ -8,7 +8,7 @@ import { FiFacebook, FiTwitter, FiLinkedin } from "react-icons/fi"
 
 const Footer = () => {
   return (
-    <SimpleGrid columns={1}>
+    <SimpleGrid columns={1} mt="200px">
       <Box d={"flex"} justifyContent={"center"} p={4}>
         <Box position={"relative"} top={-50}>
           <NewsletterForm />
